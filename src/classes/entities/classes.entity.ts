@@ -8,6 +8,7 @@ export class ClassroomEntity {
 
   teachers: UserEntity[]; 
   students: UserEntity[]; 
+  createdBy: string;
 
   challenges: ChallengeEntity[]; 
 }

@@ -2,6 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { ChallengeEntity } from './entities/challenge.entity';
 import { ChallengeType } from './entities/challenge.entity';
 import { UserEntity } from "src/users/entities/user.entity";
+import { CreateChallengesDto } from './dto/createChallenges.dto';
+import { UpdateChallengesDto } from './dto/updateChallenges.dto';
 
 @Injectable()
 export class ChallengesService {
@@ -27,25 +29,25 @@ export class ChallengesService {
         return this.challenges.find(item => item.id === +id);
     }
 
-    create(body:any){
+    create(createChallengesDto:CreateChallengesDto){
         this.lastId++
         const id = this.lastId
         const newChallenge ={
             id,
-            ...body
+            ...createChallengesDto, 
         }
 
         this.challenges.push(newChallenge)
     }
 
-    update(id:string, body:any){
+    update(id:string, updateChallengesDto:UpdateChallengesDto){
         const challengeId = this.challenges.findIndex(item=>item.id===+id)
         if(challengeId>=0){
             const challengeUpdate = this.challenges[challengeId]
 
             this.challenges[challengeId] ={
                 ...challengeUpdate,
-                ...body
+                ...updateChallengesDto
             }
         }
     }

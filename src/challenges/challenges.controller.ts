@@ -1,5 +1,6 @@
 import { ChallengesService } from './challenges.service';
 import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
+import { CreateChallengesDto } from './dto/createChallenges.dto';
 
 @Controller('challenges')
 export class ChallengesController {
@@ -17,14 +18,14 @@ export class ChallengesController {
     }
     
     @Post()
-    create(@Body() body:any ){
-        return this.ChallengesService.create(body)
+    create(@Body() createChallengesDto: CreateChallengesDto ){
+        return this.ChallengesService.create(createChallengesDto)
             
     }
     
     @Patch(':id')
-     update(@Param('id') id:string, @Body() body:any){
-        return this.ChallengesService.update(id, body)
+     update(@Param('id') id:string, @Body() createChallengesDto:CreateChallengesDto){
+        return this.ChallengesService.update(id, createChallengesDto)
     
     }
     
