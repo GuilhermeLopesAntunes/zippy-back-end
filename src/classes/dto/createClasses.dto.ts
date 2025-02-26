@@ -1,16 +1,22 @@
+import { IsArray, IsNotEmpty, IsString, MaxLength, MinLength, ValidateNested } from 'class-validator';
+import { Type } from "class-transformer";
 import { UserEntity } from '../../users/entities/user.entity';
 
 export class CreateClassesDto {
    
-    
-      //id: number;
+      @IsString()
+      @IsNotEmpty()
+      @MinLength(5)
+      @MaxLength(50)
       name: string;
-      //code: string; 
-    
-      teachers: UserEntity[]; 
-      createdBy: string
-      students: UserEntity[]; 
-    
-      //challenges: ChallengeEntity[]; 
+
+      @IsArray()
+      @ValidateNested({ each: true })
+      @Type(() => UserEntity)
+      teachers: UserEntity[];
+      @IsArray()
+      @ValidateNested({ each: true })
+      @Type(() => UserEntity)
+      students: UserEntity[];
     
 }

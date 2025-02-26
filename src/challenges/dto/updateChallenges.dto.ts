@@ -1,13 +1,7 @@
-import { UserEntity } from "src/users/entities/user.entity";
-import {ClassroomEntity} from "src/classes/entities/classes.entity"
-import { ChallengeType } from "../entities/challenge.entity";
 
-export class UpdateChallengesDto{
-      //id: number;
-      title ?: string; 
-      description ?: string; 
-      points ?: number; 
-      type: ChallengeType; 
-      classrooms ?: ClassroomEntity[]; 
-      createdBy ?: UserEntity; 
+import { PartialType } from "@nestjs/mapped-types";
+import { CreateChallengesDto } from "./createChallenges.dto";
+
+export class UpdateChallengesDto extends PartialType(CreateChallengesDto){
+
 }

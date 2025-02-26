@@ -1,19 +1,30 @@
+import { IsEmail, IsNotEmpty, IsString, MaxLength, MinLength } from "class-validator";
+
 export class CreateUserDto{
 
-    //id: number;
+    @IsString()
+    @IsNotEmpty()
+    @MinLength(5)
+    @MaxLength(50)
     name: string;
+    @IsEmail()
+    @IsNotEmpty()
+    @MinLength(5)
+    @MaxLength(50)
     email: string;
-    username: string
+    @IsString()
+    @IsNotEmpty()
+    @MinLength(5)
+    @MaxLength(50)
+    username: string;
+    @IsString()
+    @IsNotEmpty()
+    @MinLength(5)
+    @MaxLength(50)
     password: string;
-    //role: 'STUDENT' | 'TEACHER';
-    classroom: string;
-    //level: number;
-    //score: number;
-   //coins: number;
-    //items: string[]; 
-   /* trophies: { 
-        id: number; 
-        name: string; 
-        description: string 
-    }[]; */
+    @IsString()
+    @IsNotEmpty()
+    @MinLength(5)
+    @MaxLength(50)
+    classroom: string; 
 }

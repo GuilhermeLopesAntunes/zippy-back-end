@@ -13,7 +13,7 @@ export class ClassesService {
             id:1,
             name:"Sala 1",
             code: "abcxs12",
-            createdBy: "Guilherme",
+            createdBy: "User",
             teachers: [],
             students: [],
             challenges:[]
@@ -36,7 +36,8 @@ export class ClassesService {
             id,
             ...createClassesDto,
             code: "abxs1",
-            challenges: []
+            challenges: [],
+            createdBy: ""
         }
 
         this.classes.push(newClassroom)

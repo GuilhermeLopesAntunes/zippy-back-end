@@ -1,8 +1,14 @@
 
 export enum Role {
     STUDENT = 'STUDENT',
-    TEACHER ='TEACHER'
-}
+    TEACHER = 'TEACHER',
+  }
+  
+  export class Trophy {
+    id: number;
+    name: string;
+    description: string;
+  }
 
 export class UserEntity {
     id: number;
@@ -11,14 +17,10 @@ export class UserEntity {
     email: string;
     password: string;
     role: Role;
-    classroom: string;
+    classroom: string; 
     level: number;
     score: number;
     coins: number;
-    items: string[]; 
-    trophies: { 
-        id: number; 
-        name: string; 
-        description: string 
-    }[]; 
+    items: string[];
+    trophies: Trophy[];
 }
